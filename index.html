@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>آزمایشگاه مجموعه‌ها</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>آزمایشگاه مجموعه‌ها</h1>
+
+  <div class="card">
+    <div class="small">نسخهٔ وب آموزشی برای بررسی و ترکیب مجموعه‌ها</div>
+  </div>
+
+  <div class="card">
+    <h3>تعریف یا به‌روزرسانی مجموعه</h3>
+    <div class="flex wrap">
+      <label>نام مجموعه:</label>
+      <input id="setName" type="text" value="A">
+      <label>محتوا:</label>
+      <input id="setContent" type="text" placeholder="مثلاً: {1,2,3} یا 1-5 یا x ∈ N | x < 10">
+      <button id="saveSet">ذخیره</button>
+      <button id="clearSets" class="ghost">حذف همه</button>
+    </div>
+    <div class="small" style="margin-top:8px">
+      قالب‌ها: <code>{1,2,3}</code> یا <code>1-5</code> یا <code>x ∈ N | x &lt; 10</code>
+    </div>
+    <div class="sets-list" id="setsList"></div>
+  </div>
+
+  <div class="card">
+    <h3>اجرای عملیات</h3>
+    <div class="flex wrap">
+      <label>عملیات:</label>
+      <select id="op">
+        <option value="intersection">اشتراک (∩)</option>
+        <option value="union">اجتماع (∪)</option>
+        <option value="difference">تفاضل (−)</option>
+        <option value="subset">زیرمجموعه (⊆)</option>
+        <option value="member">عضو بودن (∈)</option>
+      </select>
+      <label>چپ:</label>
+      <select id="leftSet"></select>
+      <label>راست:</label>
+      <select id="rightSet"></select>
+      <div id="memberBox" style="display:none">
+        <label>عدد برای بررسی:</label>
+        <input id="memberValue" type="text" placeholder="مثلاً 3">
+      </div>
+      <button id="runOp">اجرا</button>
+    </div>
+
+    <div style="margin-top:12px">
+      <h4>نتیجه</h4>
+      <div id="symbolic" class="small"></div>
+      <div id="numeric" style="margin-top:8px"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="venn-wrap">
+      <div>
+        <h4>نمودار ون</h4>
+        <svg class="venn-svg" id="vennSvg" viewBox="0 0 320 240"></svg>
+      </div>
+      <div style="flex:1">
+        <h4>نمایش محوری</h4>
+        <div id="numberline" class="numberline"></div>
+        <div style="margin-top:10px" id="legend"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card hint">
+    <strong>نکته:</strong> اعداد به صورت فارسی نمایش داده می‌شوند و اعضای مجموعه‌ها داخل آکولاد هستند.
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
